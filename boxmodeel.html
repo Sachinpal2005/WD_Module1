@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Multiple Images Scrolling In and Out</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+  }
+
+  .carousel-wrapper {
+    width: 90vw;
+    max-width: 600px;
+    height: 250px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel {
+    display: flex;
+    height: 100%;
+    animation: scroll-left 20s linear infinite;
+  }
+
+  .carousel:hover {
+    animation-play-state: paused;
+  }
+
+  .carousel img {
+    height: 100%;
+    flex-shrink: 0;
+    width: auto;
+    margin-right: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .carousel img:hover {
+    transform: scale(1.05);
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% + 100vw));
+    }
+  }
+
+  /* Responsive fixes */
+  @media (max-width: 480px) {
+    .carousel-wrapper {
+      height: 180px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="carousel-wrapper" aria-label="Scrolling images carousel">
+    <div class="carousel" role="list">
+      <!-- Images repeated twice for smooth infinite scroll -->
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Mountain Landscape" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Ocean View" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1465311443440-507b0a8b7f8e?auto=format&fit=crop&w=400&q=80" alt="Forest Path" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80" alt="City Skyline" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1421749810611-438cc492b581?auto=format&fit=crop&w=400&q=80" alt="Sunset Beach" role="listitem" />
+      <!-- Repeat same images for infinite effect -->
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Mountain Landscape" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Ocean View" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1465311443440-507b0a8b7f8e?auto=format&fit=crop&w=400&q=80" alt="Forest Path" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80" alt="City Skyline" role="listitem" />
+      <img src="https://images.unsplash.com/photo-1421749810611-438cc492b581?auto=format&fit=crop&w=400&q=80" alt="Sunset Beach" role="listitem" />
+        <!-- Repeat same images for infinite effect -->
+        <img src="https://images.app.goo.gl/Re4ajAw2JrZbzf8o9?auto=format&fit=crop&w=400&q=80" alt="Mountain Landscape" role="listitem" />
+
+
+    </div>
+  </div>
+</body>
+</html>
